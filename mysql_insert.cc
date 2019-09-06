@@ -10,7 +10,7 @@ int main(){
     printf("connect failed! %s\n",mysql_error(connect_fd));
     return 1;
   }
-  mysql_set_character_set(connect_fd,"utf9");
+  mysql_set_character_set(connect_fd,"utf8");
   char sql[4096] = {0};
   char image_name[]="kishere's_pic.png";
   int size = 16*1024;
