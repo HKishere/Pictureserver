@@ -1,5 +1,5 @@
 server:server.cc
-	g++ $^ -o $@ -std=c++11 -lpthread
+	g++ $^ -g -o $@ -std=c++11 -L /usr/lib64/mysql -lpthread -lmysqlclient -ljsoncpp 
 
 .PHONY:clean
 clean:

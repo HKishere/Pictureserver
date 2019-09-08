@@ -31,7 +31,7 @@ namespace image_system{
         //各个键值对的名称一定要严格相同,类型也是
         sprintf(sql,"insert into image_table values(NULL,'%s','%d','%s','%s','%s','%s')",
             image["image_name"].asCString(),image["size"].asInt(),image["upload_time"].asCString(),
-            image["md5"].asCString(),image["content_type"].asCString(),image["path"].asCString());
+            image["md5"].asCString(),image["type"].asCString(),image["path"].asCString());
         printf("[Insert sql] %s\n",sql);
         int ret = mysql_query(mysql_,sql);
           if(ret != 0){
@@ -62,8 +62,8 @@ namespace image_system{
           image["type"] = (row[5]);
           image["path"] = (row[6]);
           images->append(image);
-          mysql_free_result(result);
         }
+        mysql_free_result(result);
         return true;
 
       }
