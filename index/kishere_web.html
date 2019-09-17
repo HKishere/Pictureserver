@@ -6,86 +6,97 @@
     <meta name="viewport" href="width=dvice-width,initial-scale=1" http-equiv="Content-Type" content="text/html;charset=utf-8"/>
   </head>
   <style>
-    .logo{
-      margin-top: 10px;
-      margin-left: 10px;
-      margin-bottom: 10px;
-      height: 110px;
-      width: 120px;
+.logo{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  height: 80px;
+  width: 120px;
 
-    }
+}
     .input{
-      margin-top: 30px;
-      margin-left: 15px;
-      margin-right: 10px;
+      margin-top: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
       margin-bottom:10px;
     }
     .text{
       margin-top: 20px;
       margin-bottom:20px;
     }
-    .container_right{
-      float: right;
-      margin-left: 710px;
-      margin-top: 50px;
-      padding: 10px;
-      width: 420px;
-      height:300px;
-      background-color: #c0c0c0;
+    .container-navbar {
+      padding-right: 0px;
+      padding-left: 0px;
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+    .page-header{
+      padding-bottom: 9px;
+      margin: 40px 0 20px;
+      border-bottom: 1px solid #eee;
+    }
+    .upload-page-header{
+      padding-bottom: 9px;
+      margin: 0px 0 20px;
+      border-bottom: 1px solid #eee;
     }
   </style>
   <body>
-    <div class="container-fluid">
-      <nav class="navbar navbar-inverse " role="navigation">
-          <div class="navbar-header">
-            <span class="navbar-brand active">WLCOME TO KISHERE'S WEB</span>
-          </div>
-          <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="http://www.bilibili.com">B站传送门</a></li>
-              <li><a href="http://www.csdn.net">CSDN传送门</a></li>
-              <li><a href="http://github.com">GitHub</a></li>
-              <li><a href="www.sust.edu.cn">陕科大官网</a></li>
+    <div class="container-fluid container-navbar">
+      <nav class="navbar-inverse " role="navigation">
+        <div class="navbar-header">
+          <span class="navbar-brand active">WLCOME TO KISHERE'S WEB</span>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://www.bilibili.com">B站传送门</a></li>
+            <li><a href="http://www.csdn.net">CSDN传送门</a></li>
+            <li><a href="http://github.com">GitHub</a></li>
+            <li><a href="http://www.sust.edu.cn">陕科大官网</a></li>
             <ul>
-          </div>
+        </div>
       </nav>
     </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <div class="container logo">
-              <img src="./logo.jpg" class="img-responsive" alt="">
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-5 col-md-offset-2 col-sm-offset-1">
-            <div class="input-group input">
-              <input type="text" class="form-control " placeholder="搜索">
-              <span class="input-group-btn"><button class= "btn btn-success"  type="button">search</button></span>
-            </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="container logo">
+            <img src="./logo.jpg" class="img-responsive" alt="">
           </div>
         </div>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <img src="./contact.jpg" class="img-responsive" alt=""  >
-          </div>
-            <div class="col-md-4">
-                <h1 class="page-header">
-                上传照片:
-                </h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <img src="./contact.jpg" class="img-responsive" alt=""  >
+        </div>
+          <div class="col-md-4">
+            <h3 class="page-header upload-page-header">
+              上传照片:
+            </h3>
             <form action="http://118.31.103.229:3389/image" method="post" enctype="multipart/form-data" id="form1" name="form1">
               <div class="text">
                 <input name="upload" type="file" id="inputfile" class="text"/>
               </div>
               <div .margin-top="10px">
                 <input type="submit" value="上传" class="btn btn-primary"/>
-              </p>
+              </div>
             </form> 
+            <h3 class="page-header">
+              查询图片信息:
+            </h3>
+            <form action="http://118.31.103.229:3389/image/" method="get" enctype="text">
+              <div class="input-group input">
+                <input type="text" class="form-control " placeholder="输入图片ID进行查询" name="num">
+                <span class="input-group-btn"><button class= "btn btn-success"  type="submit">查询</button></span>
+              </div>
+            </form>
+            <div>
+              <a href="/image"><button class="btn btn-block btn-success" type="submit">查询所有</button></a>
+            </div>
           </div>
-        </div>
       </div>
 
   </body>
-
 </html>

@@ -1,4 +1,5 @@
 #include <signal.h>
+#include <cstdio>
 #include <jsoncpp/json/json.h>
 #include "mysql.hpp"
 #include "httplib.h"
@@ -115,7 +116,7 @@ int main(){
         resp.set_content(writer.write(resp_json),"application/json");
       });
   //获取指定的图片信息
-  svr.Get(R"(/image/(d+))",[&image_table](const Request& req, Response& resp){
+  svr.Get(R"(/image/?num=(\d+))",[&image_table](const Request& req, Response& resp){
           Json::FastWriter writer;
           Json::Value resp_json;
           int image_id = std::stoi(req.matches[1]);
