@@ -10,7 +10,7 @@
 namespace image_system{
   static MYSQL* MysqlInit(){
     MYSQL* connect_fd = mysql_init(NULL);
-    if(mysql_real_connect(connect_fd,"127.0.0.1","root","kishere","image_system",3306,NULL,0) == NULL){
+    if(mysql_real_connect(connect_fd,"127.0.0.1","root","","image_system",3306,NULL,0) == NULL){
       printf("connect failed! %s\n",mysql_error(connect_fd));
       return NULL;
     }

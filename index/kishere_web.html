@@ -4,6 +4,14 @@
     <title>Kishere's web</title>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <meta name="viewport" href="width=dvice-width,initial-scale=1" http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script>
+function sendreq(){
+var x;
+var xmlhttp;
+xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET","/image/"+x,ture);
+}
+    </script>
   </head>
   <style>
 .logo{
@@ -75,7 +83,7 @@
             <h3 class="page-header upload-page-header">
               上传照片:
             </h3>
-            <form action="http://118.31.103.229:3389/image" method="post" enctype="multipart/form-data" id="form1" name="form1">
+            <form action="http://161.117.188.88:3389/image" method="post" enctype="multipart/form-data" id="form1" name="form1">
               <div class="text">
                 <input name="upload" type="file" id="inputfile" class="text"/>
               </div>
@@ -86,10 +94,10 @@
             <h3 class="page-header">
               查询图片信息:
             </h3>
-            <form action="http://118.31.103.229:3389/image/" method="get" enctype="text">
+            <form action="http://161.117.188.88:3389/image/" method="get" enctype="text">
               <div class="input-group input">
                 <input type="text" class="form-control " placeholder="输入图片ID进行查询" name="num">
-                <span class="input-group-btn"><button class= "btn btn-success"  type="submit">查询</button></span>
+                <span class="input-group-btn"><button class= "btn btn-success"  type="button">查询</button></span>
               </div>
             </form>
             <div>
