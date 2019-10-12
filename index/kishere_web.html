@@ -3,15 +3,7 @@
   <head>
     <title>Kishere's web</title>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-    <meta name="viewport" href="width=dvice-width,initial-scale=1" http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <script>
-function sendreq(){
-var x;
-var xmlhttp;
-xmlhttp = new XMLHttpRequest();
-xmlhttp.open("GET","/image/"+x,ture);
-}
-    </script>
+    <meta name="viewport" href="width=dvice-width,initial-scale=1" http-equiv="Content-Type" content="text/html" charset="utf-8"/>
   </head>
   <style>
 .logo{
@@ -48,6 +40,13 @@ xmlhttp.open("GET","/image/"+x,ture);
       margin: 0px 0 20px;
       border-bottom: 1px solid #eee;
     }
+    .textcontainer{
+      height:100px;
+      width:200px;
+      margin-top: 20px;
+      margin-bottom:20px;
+      border: 1px solid #eee;
+    }
   </style>
   <body>
     <div class="container-fluid container-navbar">
@@ -69,7 +68,7 @@ xmlhttp.open("GET","/image/"+x,ture);
       <div class="row">
         <div class="col-md-6 col-sm-6">
           <div class="container logo">
-            <img src="./logo.jpg" class="img-responsive" alt="">
+            <img id="pic" onclick="sendreq()" src="./logo.jpg" class="img-responsive" alt="">
           </div>
         </div>
       </div>
@@ -94,17 +93,38 @@ xmlhttp.open("GET","/image/"+x,ture);
             <h3 class="page-header">
               查询图片信息:
             </h3>
-            <form action="http://161.117.188.88:3389/image/" method="get" enctype="text">
               <div class="input-group input">
-                <input type="text" class="form-control " placeholder="输入图片ID进行查询" name="num">
-                <span class="input-group-btn"><button class= "btn btn-success"  type="button">查询</button></span>
+                <input type="text" class="form-control" placeholder="输入图片ID进行查询" id="num">
+                <span class="input-group-btn"><button class= "btn btn-success"  type="button" onclick="sendreq();">查询</button></span>
               </div>
-            </form>
             <div>
               <a href="/image"><button class="btn btn-block btn-success" type="submit">查询所有</button></a>
             </div>
           </div>
       </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div id="textcontainer">
+               
+            </div>
+          </div> 
+        </div> 
+      </div>
+      <script>
+          sendreq = function(){
+            var x = document.getElementById("num").value;
+            var xmlhttp;
+            if(x==""||isNaN(x))
+            {
+              alert("不是数字");
 
+            }
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET","/image/"+x,true);
+            xmlhttp.send();
+            document.getElementById("textcontainer").innerHTML=xmlhttp.responseText;
+          }
+      </script>
   </body>
 </html>
