@@ -40,12 +40,11 @@
       margin: 0px 0 20px;
       border-bottom: 1px solid #eee;
     }
-    .textcontainer{
+    .textc{
       height:100px;
-      width:200px;
-      margin-top: 20px;
+      width:80%;
+      margin-top: 40px;
       margin-bottom:20px;
-      border: 1px solid #eee;
     }
   </style>
   <body>
@@ -105,7 +104,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <div id="textcontainer">
+            <div id="textcontainer" class="textc">
                
             </div>
           </div> 
@@ -121,9 +120,16 @@
 
             }
             xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange=function()
+            {
+                  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+              {
+                document.getElementById("textcontainer").innerHTML=xmlhttp.responseText;
+              }
+                
+            }
             xmlhttp.open("GET","/image/"+x,true);
             xmlhttp.send();
-            document.getElementById("textcontainer").innerHTML=xmlhttp.responseText;
           }
       </script>
   </body>
