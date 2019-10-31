@@ -105,10 +105,13 @@
         <div class="row">
           <div class="col-md-8">
             <div id="textcontainer" class="textc">
-               
+
             </div>
           </div> 
         </div> 
+        <div class="row">
+          <img id="myimage">
+        </div>
       </div>
       <script>
           sendreq = function(){
@@ -124,7 +127,13 @@
             {
                   if (xmlhttp.readyState==4 && xmlhttp.status==200)
               {
-                document.getElementById("textcontainer").innerHTML=xmlhttp.responseText;
+ //             document.getElementById("textcontainer").innerHTML=xmlhttp.responseText;
+ //             obj = JSON.parse(text);
+                var text=xmlhttp.responseText;
+                obj=JSON.parse(text);
+                document.getElementById("textcontainer").innerHTML = "ID:" + obj.image_id + "<br>Name:" + obj.image_name + "<br>size:" + obj.size + "<br>upload_time:" + obj.upload_time;
+               element=document.getElementById('myimage');
+               element.src=obj.path;
               }
                 
             }

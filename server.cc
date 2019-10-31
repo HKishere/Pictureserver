@@ -98,7 +98,7 @@ int main(){
 
   svr.Get("/image",[&image_table](const Request& req, Response& resp){
       (void)req;
-        printf("get all pic imfo");
+        printf("get all pic imfo\n");
         Json::Value resp_json;
         Json::FastWriter writer;
 
