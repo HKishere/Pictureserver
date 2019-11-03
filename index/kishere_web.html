@@ -133,7 +133,7 @@
                 obj=JSON.parse(text);
                 document.getElementById("textcontainer").innerHTML = "ID:" + obj.image_id + "<br>Name:" + obj.image_name + "<br>size:" + obj.size + "<br>upload_time:" + obj.upload_time;
                element=document.getElementById('myimage');
-               element.src=obj.path;
+               element.src="."+obj.path;
               }
                 
             }

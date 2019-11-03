@@ -73,7 +73,7 @@ int main(){
       image["upload_time"] = "2018/08/31";
       image["md5"] = "ksihere";
       image["type"] = file.content_type;
-      image["path"] = "./pic/" + file.filename;
+      image["path"] = "/pic/" + file.filename;
       ret = image_table.Insert(image);
       if(!ret){
         printf("image_talbe Inset failed!\n");
@@ -84,8 +84,10 @@ int main(){
         return ;
       }
       //把图片保存到指定的磁盘目录
+      std::string path = "./index";
+      path += image["path"].asCString();
       auto body = req.body.substr(file.offset, file.length);
-      FileUtil::Write(image["path"].asString(),body);
+      FileUtil::Write(path,body);
       //构造一个响应数据告诉客户端上传成功
       resp_json["OK"] = true;
       resp.status = 200;
